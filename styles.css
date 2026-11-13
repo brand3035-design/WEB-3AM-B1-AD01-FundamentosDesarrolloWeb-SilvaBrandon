@@ -1,0 +1,143 @@
+/* ===== AutoControl 360 - styles.css ===== */
+
+:root {
+    --azul-oscuro: #0b2545;
+    --azul: #13315c;
+    --acento: #ffb703;
+    --fondo: #f4f6fb;
+}
+
+body {
+    background-color: var(--fondo);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* ---------- Navegación ---------- */
+.barra-principal {
+    background: linear-gradient(90deg, var(--azul-oscuro), var(--azul));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.barra-principal .nav-link {
+    border-radius: 6px;
+    margin: 0 2px;
+    transition: background-color 0.2s;
+}
+
+.barra-principal .nav-link:hover,
+.barra-principal .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--acento);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    background:
+        linear-gradient(rgba(11, 37, 69, 0.85), rgba(19, 49, 92, 0.85)),
+        repeating-linear-gradient(45deg, #13315c 0, #13315c 12px, #0b2545 12px, #0b2545 24px);
+}
+
+/* ---------- Tarjetas ---------- */
+.tarjeta {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.icono-grande {
+    font-size: 2.6rem;
+    color: var(--azul);
+}
+
+.titulo-seccion {
+    color: var(--azul-oscuro);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--acento);
+    display: inline-block;
+}
+
+/* ---------- Catálogo de servicios ---------- */
+.servicio-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.servicio-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.servicio-card .icono-servicio {
+    font-size: 2rem;
+    color: var(--acento);
+    background: var(--azul-oscuro);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ---------- Estadísticas del panel admin ---------- */
+.tarjeta-stat {
+    background: #fff;
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--acento);
+}
+
+.tarjeta-stat .num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+}
+
+.tarjeta-stat .etq {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* ---------- Tablas ---------- */
+.table-responsive {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.select-estado {
+    min-width: 130px;
+}
+
+/* ---------- Formularios ---------- */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 0 0.2rem rgba(19, 49, 92, 0.2);
+}
+
+/* ---------- Footer ---------- */
+.pie {
+    background: var(--azul-oscuro);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .titulo-seccion {
+        font-size: 1.5rem;
+    }
+}

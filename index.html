@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoControl 360 | Taller de Mantenimiento Automotriz</title>
+
+    <!-- Bootstrap, iconos y SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- ================= HEADER + NAVEGACIÓN ================= -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark barra-principal sticky-top">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="#" data-vista="inicio">
+                    <i class="bi bi-gear-wide-connected me-2"></i>AutoControl 360
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                        aria-expanded="false" aria-label="Mostrar menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#" data-vista="inicio">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-vista="acerca">Acerca de</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-vista="servicios">Servicios</a></li>
+                        <li class="nav-item solo-invitado"><a class="nav-link" href="#" data-vista="registro">Registrarse</a></li>
+                        <li class="nav-item solo-sesion d-none"><a class="nav-link" href="#" data-vista="solicitud">Solicitar</a></li>
+                        <li class="nav-item solo-sesion d-none"><a class="nav-link" href="#" data-vista="mis">Mis mantenimientos</a></li>
+                        <li class="nav-item solo-sesion d-none"><a class="nav-link" href="#" data-vista="perfil">Mi perfil</a></li>
+                        <li class="nav-item solo-sesion d-none"><a class="nav-link" href="#" data-vista="admin"><i class="bi bi-shield-lock me-1"></i>Administración</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center gap-2">
+                        <span id="usuarioNav" class="text-white-50 small d-none"></span>
+                        <button id="btnAccesoNav" class="btn btn-warning btn-sm" type="button">Ingresar</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- ===== MÓDULO 1: INICIO ===== -->
+        <section id="vista-inicio" class="vista">
+            <div class="hero text-white text-center">
+                <div class="container py-5">
+                    <h1 class="display-4 fw-bold">AutoControl 360</h1>
+                    <p class="lead mb-4">Mantenimiento automotriz con control total, de principio a fin.</p>
+                    <button class="btn btn-warning btn-lg me-2 mb-2" data-vista="servicios">Ver servicios</button>
+                    <button class="btn btn-outline-light btn-lg mb-2" data-vista="solicitud">Solicitar mantenimiento</button>
+                </div>
+            </div>
+            <div class="container py-5">
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <div class="card tarjeta h-100 p-4">
+                            <i class="bi bi-lightning-charge-fill icono-grande"></i>
+                            <h5 class="mt-3">Atención rápida</h5>
+                            <p class="text-muted mb-0">Agenda tu cita en línea y evita las filas en el taller.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card tarjeta h-100 p-4">
+                            <i class="bi bi-bar-chart-line-fill icono-grande"></i>
+                            <h5 class="mt-3">Seguimiento en línea</h5>
+                            <p class="text-muted mb-0">Consulta el estado de tus mantenimientos cuando quieras.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card tarjeta h-100 p-4">
+                            <i class="bi bi-patch-check-fill icono-grande"></i>
+                            <h5 class="mt-3">Técnicos certificados</h5>
+                            <p class="text-muted mb-0">Personal capacitado y repuestos de calidad garantizada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 1: ACERCA DE ===== -->
+        <section id="vista-acerca" class="vista d-none">
+            <div class="container py-5">
+                <h2 class="titulo-seccion">Acerca de nosotros</h2>
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <p>
+                            <strong>AutoControl 360</strong> es un taller de mantenimiento automotriz que combina
+                            experiencia mecánica con tecnología. Nuestro portal permite que cada cliente registre
+                            sus solicitudes y consulte el avance de su vehículo sin necesidad de llamar o visitar el local.
+                        </p>
+                        <h5 class="mt-4">Misión</h5>
+                        <p>Mantener tu vehículo seguro y en óptimas condiciones con un servicio transparente y puntual.</p>
+                        <h5>Visión</h5>
+                        <p>Ser el taller de referencia en gestión digital de mantenimiento vehicular.</p>
+                        <h5>Valores</h5>
+                        <ul>
+                            <li>Honestidad en cada diagnóstico</li>
+                            <li>Puntualidad en las entregas</li>
+                            <li>Calidad en repuestos y mano de obra</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card tarjeta p-4">
+                            <h5><i class="bi bi-clock me-2"></i>Horario de atención</h5>
+                            <ul class="list-unstyled mb-0 mt-3">
+                                <li class="d-flex justify-content-between py-1 border-bottom"><span>Lunes a viernes</span><strong>08:00 - 17:00</strong></li>
+                                <li class="d-flex justify-content-between py-1 border-bottom"><span>Sábados</span><strong>08:00 - 13:00</strong></li>
+                                <li class="d-flex justify-content-between py-1"><span>Domingos</span><strong class="text-danger">Cerrado</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 1: SERVICIOS ===== -->
+        <section id="vista-servicios" class="vista d-none">
+            <div class="container py-5">
+                <h2 class="titulo-seccion">Catálogo de servicios</h2>
+                <div class="row g-4" id="catalogoServicios"></div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 3: LOGIN ===== -->
+        <section id="vista-login" class="vista d-none">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="card tarjeta p-4">
+                            <h3 class="text-center mb-4"><i class="bi bi-person-circle me-2"></i>Iniciar sesión</h3>
+                            <form id="formLogin" novalidate>
+                                <label for="loginUsuario" class="form-label">Usuario</label>
+                                <input type="text" id="loginUsuario" class="form-control mb-3" placeholder="Ingresa tu usuario" autocomplete="username">
+
+                                <label for="loginClave" class="form-label">Contraseña</label>
+                                <input type="password" id="loginClave" class="form-control mb-4" placeholder="Ingresa tu contraseña" autocomplete="current-password">
+
+                                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                            </form>
+
+                            <p class="text-center mt-3 mb-0">
+                                ¿No tienes cuenta? <a href="#" data-vista="registro">Regístrate aquí</a>
+                            </p>
+
+                            <hr class="my-4">
+                            <p class="small text-muted mb-2">Usuarios de prueba:</p>
+                            <table class="table table-sm small mb-0">
+                                <thead><tr><th>Usuario</th><th>Clave</th><th>Rol</th></tr></thead>
+                                <tbody>
+                                    <tr><td>admin</td><td>admin123</td><td>Administrador</td></tr>
+                                    <tr><td>brandon</td><td>brandon123</td><td>Cliente</td></tr>
+                                    <tr><td>jair</td><td>jair123</td><td>Cliente</td></tr>
+                                    <tr><td>cristofer</td><td>cristofer123</td><td class="text-danger">Deshabilitada</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 3: REGISTRO DE NUEVO CLIENTE ===== -->
+        <section id="vista-registro" class="vista d-none">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card tarjeta p-4">
+                            <h3 id="tituloRegistro" class="mb-1">Crear cuenta de cliente</h3>
+                            <p id="textoRegistro" class="text-muted mb-4"></p>
+
+                            <form id="formRegistro" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="regNombre" class="form-label">Nombre completo</label>
+                                        <input type="text" id="regNombre" class="form-control" placeholder="Ej: Brandon Silva">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regUsuario" class="form-label">Usuario</label>
+                                        <input type="text" id="regUsuario" class="form-control" placeholder="Ej: brandon_silva" maxlength="15" autocomplete="off">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regCorreo" class="form-label">Correo electrónico</label>
+                                        <input type="email" id="regCorreo" class="form-control" placeholder="ejemplo@correo.com">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regTelefono" class="form-label">Teléfono</label>
+                                        <input type="tel" id="regTelefono" class="form-control" placeholder="0000000000" maxlength="10">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regClave" class="form-label">Contraseña</label>
+                                        <input type="password" id="regClave" class="form-control" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="regClave2" class="form-label">Confirmar contraseña</label>
+                                        <input type="password" id="regClave2" class="form-control" placeholder="Repite la contraseña" autocomplete="new-password">
+                                    </div>
+
+                                    <!-- Solo visible para el Administrador -->
+                                    <div id="grupoEstadoAdmin" class="col-md-6 d-none">
+                                        <label for="regEstado" class="form-label">Estado de la cuenta</label>
+                                        <select id="regEstado" class="form-select">
+                                            <option value="activa">Activa</option>
+                                            <option value="deshabilitada">Deshabilitada</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-2 mt-4">
+                                    <button type="submit" class="btn btn-primary"><i class="bi bi-person-plus me-1"></i>Crear cuenta</button>
+                                    <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 2: SOLICITUD DE MANTENIMIENTO ===== -->
+        <section id="vista-solicitud" class="vista d-none">
+            <div class="container py-5">
+                <h2 class="titulo-seccion">Solicitud de mantenimiento</h2>
+                <div class="card tarjeta p-4">
+                    <form id="formSolicitud" novalidate>
+
+                        <!-- Solo visible para el Administrador -->
+                        <div id="grupoClienteAdmin" class="row mb-3 d-none">
+                            <div class="col-md-6">
+                                <label for="solCliente" class="form-label">Registrar a nombre de</label>
+                                <select id="solCliente" class="form-select"></select>
+                            </div>
+                        </div>
+
+                        <h5 class="text-primary"><i class="bi bi-person-vcard me-2"></i>Datos del cliente</h5>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <label for="solNombre" class="form-label">Nombre completo</label>
+                                <input type="text" id="solNombre" class="form-control" readonly>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="solCorreo" class="form-label">Correo electrónico</label>
+                                <input type="email" id="solCorreo" class="form-control" placeholder="ejemplo@correo.com">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="solTelefono" class="form-label">Teléfono</label>
+                                <input type="tel" id="solTelefono" class="form-control" placeholder="0000000000" maxlength="10">
+                            </div>
+                        </div>
+
+                        <h5 class="text-primary"><i class="bi bi-car-front me-2"></i>Datos del automóvil</h5>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4">
+                                <label for="solPlaca" class="form-label">Placa</label>
+                                <input type="text" id="solPlaca" class="form-control text-uppercase" placeholder="ABC-1234" maxlength="8">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="solMarca" class="form-label">Marca</label>
+                                <select id="solMarca" class="form-select"></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="solModelo" class="form-label">Modelo</label>
+                                <input type="text" id="solModelo" class="form-control" placeholder="Ej: Sail">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="solAnio" class="form-label">Año</label>
+                                <input type="number" id="solAnio" class="form-control" placeholder="2020">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="solKm" class="form-label">Kilometraje</label>
+                                <input type="number" id="solKm" class="form-control" placeholder="45000" min="0">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label d-block">Tipo de combustible</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="combustible" id="comb1" value="Gasolina">
+                                <label class="form-check-label" for="comb1">Gasolina</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="combustible" id="comb2" value="Diésel">
+                                <label class="form-check-label" for="comb2">Diésel</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="combustible" id="comb3" value="Híbrido">
+                                <label class="form-check-label" for="comb3">Híbrido</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="combustible" id="comb4" value="Eléctrico">
+                                <label class="form-check-label" for="comb4">Eléctrico</label>
+                            </div>
+                        </div>
+
+                        <h5 class="text-primary"><i class="bi bi-tools me-2"></i>Servicio solicitado</h5>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="solServicio" class="form-label">Tipo de servicio</label>
+                                <select id="solServicio" class="form-select"></select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="solFecha" class="form-label">Fecha</label>
+                                <input type="date" id="solFecha" class="form-control">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="solHora" class="form-label">Hora (08:00 - 17:00)</label>
+                                <input type="time" id="solHora" class="form-control" min="08:00" max="17:00">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label d-block">Servicios adicionales</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="extras" id="ext1" value="Lavado exterior">
+                                <label class="form-check-label" for="ext1">Lavado exterior</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="extras" id="ext2" value="Revisión de luces">
+                                <label class="form-check-label" for="ext2">Revisión de luces</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="extras" id="ext3" value="Rotación de llantas">
+                                <label class="form-check-label" for="ext3">Rotación de llantas</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="extras" id="ext4" value="Niveles de fluidos">
+                                <label class="form-check-label" for="ext4">Niveles de fluidos</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="solObs" class="form-label">Observaciones (máx. 300 caracteres)</label>
+                            <textarea id="solObs" class="form-control" rows="3" maxlength="300"
+                                      placeholder="Describe el problema o lo que necesitas..."></textarea>
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-send me-1"></i>Registrar solicitud</button>
+                            <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 3: MIS MANTENIMIENTOS ===== -->
+        <section id="vista-mis" class="vista d-none">
+            <div class="container py-5">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                    <h2 class="titulo-seccion mb-0">Mis mantenimientos</h2>
+                    <select id="filtroMis" class="form-select w-auto"></select>
+                </div>
+                <div class="table-responsive tarjeta bg-white">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th><th>Placa</th><th>Vehículo</th><th>Servicio</th>
+                                <th>Fecha y hora</th><th>Kilometraje</th><th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaMis"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 3: PERFIL ===== -->
+        <section id="vista-perfil" class="vista d-none">
+            <div class="container py-5">
+                <h2 class="titulo-seccion">Mi perfil</h2>
+                <div class="card tarjeta p-4 mb-4">
+                    <div class="row g-3" id="perfilDatos"></div>
+                </div>
+                <h5 class="mb-3">Mis solicitudes</h5>
+                <div class="table-responsive tarjeta bg-white">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th><th>Placa</th><th>Vehículo</th><th>Servicio</th>
+                                <th>Fecha y hora</th><th>Kilometraje</th><th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaPerfil"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MÓDULO 3: ADMINISTRACIÓN (CRUD) ===== -->
+        <section id="vista-admin" class="vista d-none">
+            <div class="container py-5">
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                    <h2 class="titulo-seccion mb-0">Panel de administración</h2>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary" data-vista="registro"><i class="bi bi-person-plus me-1"></i>Nuevo cliente</button>
+                        <button class="btn btn-primary" data-vista="solicitud"><i class="bi bi-plus-circle me-1"></i>Nueva solicitud</button>
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-4" id="adminStats"></div>
+
+                <div class="row g-2 mb-3">
+                    <div class="col-md-6">
+                        <input type="text" id="buscarAdmin" class="form-control" placeholder="Buscar por placa o nombre del cliente...">
+                    </div>
+                    <div class="col-md-3">
+                        <select id="filtroAdmin" class="form-select"></select>
+                    </div>
+                </div>
+
+                <div class="table-responsive tarjeta bg-white mb-5">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th><th>Cliente</th><th>Placa</th><th>Vehículo</th><th>Servicio</th>
+                                <th>Fecha y hora</th><th>Kilometraje</th><th>Estado</th><th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaAdmin"></tbody>
+                    </table>
+                </div>
+
+                <h4 class="mb-3"><i class="bi bi-people me-2"></i>Clientes registrados</h4>
+                <div class="table-responsive tarjeta bg-white">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th><th>Nombre</th><th>Usuario</th><th>Correo</th>
+                                <th>Teléfono</th><th>Solicitudes</th><th>Cuenta</th><th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaClientes"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= MODAL EDITAR (ADMIN) ================= -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <form class="modal-content" id="formEditar" novalidate>
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar solicitud</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label for="editPlaca" class="form-label">Placa</label>
+                            <input type="text" id="editPlaca" class="form-control text-uppercase" maxlength="8">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="editMarca" class="form-label">Marca</label>
+                            <select id="editMarca" class="form-select"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="editModelo" class="form-label">Modelo</label>
+                            <input type="text" id="editModelo" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="editAnio" class="form-label">Año</label>
+                            <input type="number" id="editAnio" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="editKm" class="form-label">Kilometraje</label>
+                            <input type="number" id="editKm" class="form-control" min="0">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="editEstado" class="form-label">Estado</label>
+                            <select id="editEstado" class="form-select"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="editServicio" class="form-label">Servicio</label>
+                            <select id="editServicio" class="form-select"></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="editFecha" class="form-label">Fecha</label>
+                            <input type="date" id="editFecha" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="editHora" class="form-label">Hora</label>
+                            <input type="time" id="editHora" class="form-control" min="08:00" max="17:00">
+                        </div>
+                        <div class="col-12">
+                            <label for="editObs" class="form-label">Observaciones</label>
+                            <textarea id="editObs" class="form-control" rows="3" maxlength="300"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="pie text-white-50 text-center py-4">
+        <div class="container">
+            <p class="mb-1"><strong class="text-white">AutoControl 360</strong> · Taller de mantenimiento automotriz</p>
+            <p class="small mb-0">Instituto Superior Tecnológico Cordillera · Programación Web 1 · 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
